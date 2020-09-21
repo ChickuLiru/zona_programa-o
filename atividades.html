@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zona de Programação</title>
+    <link rel="stylesheet" href="css/atividades.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="icon" type="image/ico" href="images/MuriloEu-poético.jpg">
+</head>
+<body>
+    <nav>
+        <a href="index.html"><img  src="images/LOGO.png" alt="Logo" class="molde"></a>
+        <ul>
+            <li><a href="atividades.html">Atividades</a></li>
+            <li><a href="descontrair.html">Descontrair</a></li>
+            <li><a href="integrantes.html">Integrantes</a></li>
+        </ul>
+    </nav>
+   
+    <div class="container" style="width: 100%;margin-top: 50px;">
+        <h1 class="title">Planador</h1>
+        <div class="row">
+            <div class="col">
+                <!--primeira caixinha-->
+                <p style="padding: 15px;font-size:12.8px; border: 1px solid lightblue;color: white;">A atividade tinha como objetivos movimentar as asas do planador para 3 etapas do voo: Decolagem(asas para baixo);Curva(asas em sentidos opostos) e Pouso(asas para cima).</p>
+                    <img src="images/Planador.png" alt="Planador" style="width: 100%;">
+            </div>
+            <div class="col">
+                <!--segunda caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue; font-weight: bold;">
+                    <code>
+                        void loop(){<br>
+                            analogWrite(pinoD,0);<br>
+                            analogWrite(pinoE,0);<br>
+                            <br>
+                            int posD=0;<br>
+                            int posE=200;<br>
+                            <br>
+                            for(int pos=100; pos &lt;=200; pos +- 1){<br>
+                                <br>
+                                posD+=1;<br>
+                                posE-=1;<br>
+        
+                                Serial.println("cima");<br>
+                                analogWrite(pinoD,posD);<br>
+                                analogWrite(pinoE,posE);<br>
+                                delay(2000);<br>
+                                <br>
+                                for(int pos = 200; pos &gt;=100; pos-=1){<br>
+                                    <br>
+                                    posD-=1;<br>
+                                    posD+=1;<br>
+                                    <br>
+                                    Serial.println("baixo");<br>
+                                }<br>
+                            }<br>
+                        }<br>
+                    </code></p>
+            </div>
+            <div class="w-100"></div> <!--quebra de linha-->
+        </div>
+    </div>
+    <div class="container" style="margin-top: 25px;">
+        <h1 class="title">Cisterna</h1>
+        <div class="row">
+            <div class="col">
+                <!--primeira caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue;color:white">Nesse projeto existiam duas caixas e nós precisávamos levar água de uma à outra se a primeira estivesse cheia e a outra vazia além de não deixar a segunda transbordar.</p>
+                <img src="images/Cisterna_fortlev_3.png" alt="Cisterna" style="object-fit: cover; width: 100%;">
+            </div>
+            <div class="col">
+                <!--segunda caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue; font-weight: bold; ">
+                <code>#include &lt;Arduino.h&gt;<br>
+                    <br>
+                    const int nivel_cisterna = 3; //PINO DIGITAL UTILIZADO PELO SENSOR<br>
+                    //DE NIVEL DA CISTERNA<br>
+                    <br>
+                    const int nivel_sup_caixa = 8; //PINO DIGITAL UTILIZADO PELO SENSOR<br>
+                    //DE NIVEL SUPERIOR DA CAIXA DE AGUA<br>
+                    const int nivel_inf_caixa = 9; //PINO DIGITAL UTILIZADO PELO SENSOR<br>
+                    //DE NIVEL INFERIOR DA CAIXA DE AGUA<br>
+                    <br>
+                    const int bomba = 12; //PINO DIGITAL UTILIZADO PELA BOMBA<br>
+                    unsigned long duration;<br>
+                    void setup(){<br>
+                      Serial.begin(9600);<br>
+                      pinMode(bomba,OUTPUT);<br>
+                      pinMode(nivel_cisterna, INPUT_PULLUP); //INICIALIZAÇÃO DA SERIAL<br>
+                      pinMode(nivel_inf_caixa, INPUT_PULLUP);<br>
+                      pinMode(nivel_sup_caixa,INPUT_PULLUP);<br>
+                    }<br>
+                    //nível da caixa d´agua 1 = vazia<br>
+                    <br>
+                    void loop(){<br>
+                    if(digitalRead(nivel_cisterna) == 1 && digitalRead(nivel_sup_caixa==1)){<br>
+                      Serial.print<br>
+                      <br>
+                     digitalWrite(bomba,HIGH);<br>
+                     <br>
+                    }<br>
+                    else{<br>
+                       digitalWrite(bomba,LOW);<br>
+                      Serial.print("Não possui água");<br>
+                      }<br>
+                }</code></p>
+            </div>
+            <div class="w-100"></div> <!--quebra de linha-->
+        </div>
+    </div>
+    <div class="container" style="margin-top: 25px;">
+        <h1 class="title">Portão</h1>
+        <div class="row">
+            <div class="col">
+                <!--primeira caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue;color:white">Nesse projeto, a gente precisava fazer com que o portão abrisse ao apertar o botão e fechar quando apertado novamento</p>
+                <img src="images/Portão.png" alt="Portão" style="object-fit: cover; width: 100%;">
+            </div>
+            <div class="col">
+                <!--segunda caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue; font-weight: bold; ">
+                <code>
+                    #include &lt;Arduino.h&gt;<br>
+                        <br>
+                        //  ZONA DE PROGRAMAÇÃO <br>
+                        <br>
+                        int abre = 2;       //Saida abrir portão pin 02<br>
+                        int fecha = 3;      //Saida Fechar portão pin 03<br>
+                        <br>
+                        int sabre = 12;     //Sensor portão aberto pin 12<br>
+                        int statuabre = 0;  // armazena o estado do sensor abre<br>
+                        int sfecha = 13;    //Sensor portão fechado pin 13<br>
+                        int statufecha = 0; //armazena o estado do sensor fecha<br>
+                        int botao = 0;      //Variável para armazenar informação no pin 08<br>
+                        <br>
+                        void setup() {<br>
+                            <br>
+                        pinMode(2, OUTPUT);<br>
+                        <br>
+                        pinMode(3, OUTPUT);<br>
+                        pinMode(8,INPUT);<br>
+                        <br>
+                        pinMode(12,INPUT_PULLUP);<br>
+                        pinMode(13,INPUT_PULLUP);<br>
+                        <br>
+                        }<br>
+                        <br>
+                        void loop(){<br>
+                            <br>
+                           int btn = digitalRead(8);<br>
+                           <br>
+                          if(btn == HIGH){<br>
+                            if(digitalRead(13) == LOW && digitalRead(12) == HIGH){<br>
+                              //Abre<br>
+                              digitalWrite(2,HIGH);<br>
+                            }<br>
+                            else if(digitalRead(13) == HIGH && digitalRead(12) == LOW){<br>
+                              //Fechar<br>
+                              digitalWrite(2,LOW);<br>
+                              delay(3000);<br>
+                              digitalWrite(3,HIGH);<br>
+                              <br>
+                            }else{<br>
+                              //Neutro<br>
+                              digitalWrite(3,LOW);<br>
+                              digitalWrite(2,LOW);<br>
+                            }<br>
+                          }<br>
+                        }</code></p>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-top: 25px;">
+        <div class="row">
+            <div class="col">
+                <h1 class="title">Ventoinhas</h1>
+                <!--primeira caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue;color:white">Nesse projeto, a gente precisava fazer com que o sensor ative com uma determinada temperatura, sendo que o primeiro 25° e o segundo 35°</p>
+                <img src="images/Ventoinhas.png" alt="Ventoinhas" style="object-fit: cover; width: 100%;">
+            </div>
+            <div class="col">
+                <!--segunda caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue; font-weight: bold;margin-top: 55px; ">
+                <code>
+                #include &lt;Arduino.h&gt;<br>
+                    <br>
+                            // zona de programação A<br>
+                            // Cooler 1 = 9<br>
+                            // Cooler 2 = 10<br>
+                            <br>
+                            // Acima de 30 - 1<br>
+                            // Acima de 40 - 1 e 2<br>
+                            float temperatura = 0;<br>
+                            <br>
+                            <br>
+                            void setup() {<br>
+                              Serial.begin(9600);<br>
+                              pinMode(9,OUTPUT);<br>
+                              pinMode(10,OUTPUT);<br>
+                            }<br>
+                            <br>
+                            void loop() {<br>
+                              temperatura = (analogRead(A0) * 0.0048828125 * 100);<br>
+                               Serial.print("Temperatura = "); <br>
+                               Serial.print(temperatura);<br>
+                               Serial.println("C"); <br>
+                               delay(2000); <br>
+                               <br>
+                              if(temperatura &gt;= 40){<br>
+                                digitalWrite(10 ,HIGH);<br>
+                              }<br>
+                              else if(temperatura &gt;= 30){<br>
+                                digitalWrite(9 ,HIGH);<br>
+                                digitalWrite(10,LOW);<br>
+                              }<br>
+                              else{<br>
+                                digitalWrite(9,LOW);<br>
+                              }<br>
+                              <br>
+                            }</code></p>
+            </div>
+        </div>
+    
+    </div>
+    <div class="container" style="margin-top: 25px;">
+        <h1 class="title">Hélice</h1>
+        <div class="row">
+            <div class="col">
+                <!--primeira caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue;color:white">Nesse projeto, nós precisávamos fazer com que a helice subisse um pouco e depois descesse suavemente.</p>
+                <img src="images/helice.png" alt="helice" style="object-fit: cover; width: 100%;">
+            </div>
+            <div class="col">
+                <!--segunda caixinha-->
+                <p style="padding: 15px; border: 1px solid lightblue; font-weight: bold; ">
+                <code>
+                    #include &lt;Arduino.h&gt;<br>
+                        <br>
+                        const int motor = 6;<br>
+                        const int poten = A1;<br>
+                        int val = 0;<br>
+                        <br>
+                        void setup() {<br>
+                          Serial.begin(9600);<br>
+                          pinMode(motor, OUTPUT);<br>
+                        }<br>
+                        <br>
+                        void loop() {<br>
+                            val =  analogRead(A1); <br>
+                            Serial.println(val /5);<br>
+                            <br>
+                            <br>
+                            if(val/4 &lt; 240){<br>
+                            analogWrite(6 ,val/5);<br>
+                            } <br>
+                            <br>
+                            delay(1000);<br>
+                            <br>
+                            for(int i = val/5; i > 231; i--){<br>
+                                Serial.println(i);<br>
+                                analogWrite(6 ,i);<br>
+                                delay(1000);<br>
+                            }<br>
+                            <br>
+                            delay(3000);<br>
+                        }
+                </code></p>
+            </div>
+    </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+</body>
+</html>

@@ -1,0 +1,84 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+    background-color: #2F3136;
+}
+.molde{
+    display:inline-block;
+    margin: 10px;
+    height: 60px;
+    width: 60px;
+    object-fit: fill;
+}
+nav{
+    background: #21262B;
+    height: 80px;
+}
+nav label{
+    display: inline-block;
+    margin: 36px;
+    font-size: 20px;
+    font-weight: 600;
+    color: white;
+}
+nav ul{
+    float: right;
+    margin: 5px;
+}
+nav ul li{
+    display: inline-block;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 20px;
+    margin: 20px;
+    color: white;
+    border: none;
+    transition: 0.25s;
+    transition-timing-function: linear;
+    transition: stroke-dashoffset 4s;
+}
+nav ul li:hover{
+    font-weight: 600;
+    color: white;
+}
+.moldura{
+    display:inline-block;
+    margin: 25px;
+    height: 400px;
+    width: 400px;
+    object-fit: cover;
+    box-shadow:
+    0 0 10px 5px rgba(255, 255, 255, 0.5),
+    0 0 15px 10px rgba(255, 0, 255, 0.5),
+    0 0 20px 15px rgba(0, 255, 255, 0.5);
+    transition: .2s all;
+    animation: 2s alternate testezaum infinite ease-in-out;
+    border-radius: 15px;
+}
+.moldura:hover{
+    -ms-transform: scale(1.1); /* IE 9 */
+    -webkit-transform: scale(1.1); /* Safari 3-8 */
+    transform: scale(1.1); 
+}
+
+a:hover {
+    outline: none;
+}
+
+
+@keyframes testezaum {
+    from {box-shadow:
+        0 0 10px 5px rgb(240, 11, 11),
+        0 0 15px 10px rgba(180, 33, 180, 0.5),
+        0 0 20px 15px rgba(65, 228, 36, 0.5);}
+    to {box-shadow:
+        0 0 20px 15px rgba(19, 0, 189, 0.5),
+        0 0 15px 10px rgba(255, 0, 255, 0.5),
+        0 0 10px 5px rgb(28, 250, 250);}
+}
